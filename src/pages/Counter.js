@@ -3,8 +3,8 @@
 import React, { Component } from 'react'
 
 export default class Counter extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
             stateNum: 0
@@ -13,13 +13,13 @@ export default class Counter extends Component {
 
     handleUpClick = () => {
         this.setState({
-            stateNum: this.state.stateNum++
+            stateNum: this.state.stateNum + 1
         })
     }
 
     handleDownClick = () => {
         this.setState({
-            stateNum: this.state.stateNum++
+            stateNum: this.state.stateNum - 1
         })
     }
 

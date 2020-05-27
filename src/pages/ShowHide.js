@@ -1,3 +1,5 @@
+// button to show and hide text.
+
 import React, { Component } from 'react'
 
 export default class ShowHide extends Component {

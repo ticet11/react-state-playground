@@ -1,3 +1,5 @@
+//TODO: Increase/decrease font size
+
 import React, { Component } from 'react'
 
 export default class FontSizer extends Component {

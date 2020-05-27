@@ -1,3 +1,5 @@
+// change alignment of text
+
 import React, { Component } from 'react'
 
 export default class Align extends Component {

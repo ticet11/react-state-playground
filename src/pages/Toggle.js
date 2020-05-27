@@ -1,3 +1,5 @@
+// TODO: Toggle between hello and goodbye
+
 import React, { Component } from 'react'
 
 export default class Toggle extends Component {

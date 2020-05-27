@@ -1,48 +1,48 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
     return (
         <div className="navigation">
             <div className="nav-link">
-                <Link exact to="/">
+                <NavLink exact to="/">
                     Home
-                </Link>
+                </NavLink>
             </div>
             <div className="nav-link">
-                <Link exact to="/counter">
+                <NavLink exact to="/counter">
                     Counter
-                </Link>
+                </NavLink>
             </div>
             <div className="nav-link">
-                <Link exact to="/toggle">
+                <NavLink exact to="/toggle">
                     Toggle
-                </Link>
+                </NavLink>
             </div>
             <div className="nav-link">
-                <Link exact to="/fontsizer">
+                <NavLink exact to="/fontsizer">
                     Font Sizer
-                </Link>
+                </NavLink>
             </div>
             <div className="nav-link">
-                <Link exact to="/align">
+                <NavLink exact to="/align">
                     Align
-                </Link>
+                </NavLink>
             </div>
             <div className="nav-link">
-                <Link exact to="/showhide">
+                <NavLink exact to="/showhide">
                     Show Hide
-                </Link>
+                </NavLink>
             </div>
             <div className="nav-link">
-                <Link exact to="/clock">
+                <NavLink exact to="/clock">
                     Clock
-                </Link>
+                </NavLink>
             </div>
             <div className="nav-link">
-                <Link exact to="/changecolor">
+                <NavLink exact to="/changecolor">
                     Change Color
-                </Link>
+                </NavLink>
             </div>
         </div>
     );

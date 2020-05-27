@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import Header from './components/Header';
+import Align from './pages/Align';
+import ChangeColor from './pages/ChangeColor';
+import Clock from './pages/Clock';
+import Counter from './pages/Counter';
+import FontSizer from './pages/FontSizer';
+import ShowHide from './pages/ShowHide';
+import Toggle from './pages/Toggle';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/counter' component={Counter} />
+        <Route exact path='/toggle' component={Toggle} />
+        <Route exact path='/fontsizer' component={FontSizer} />
+        <Route exact path='/align' component={Align} />
+        <Route exact path='/showhide' component={ShowHide} />
+        <Route exact path='/clock' component={Clock} />
+        <Route exact path='/changecolor' component={ChangeColor} />
+      </Switch>
+    </Router>
   );
+}
+
+const Home = () => {
+  return (
+    <div>
+      <h1>Home</h1>
+    </div>
+  )
 }
 
 export default App;

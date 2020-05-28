@@ -12,16 +12,25 @@ export default class Counter extends Component {
     }
 
     handleButtonClick = (number) => {
-        this.setState({
-            stateNum: this.state.stateNum + number,
-        });
+        this.setState((prevState) => ({
+            stateNum: prevState.stateNum + number,
+        }));
     };
 
     render() {
         return (
-            <div style={{ padding: '10px' }}>
+            <div style={{ padding: "10px" }}>
                 <h1>Counter</h1>
-                <div className="counter-container" style={{ width: '100px', padding: '5px', display: 'grid', gridTemplateColumns: '1fr 1fr', alignItems: 'center' }}>
+                <div
+                    className="counter-container"
+                    style={{
+                        width: "100px",
+                        padding: "5px",
+                        display: "grid",
+                        gridTemplateColumns: "1fr 1fr",
+                        alignItems: "center",
+                    }}
+                >
                     <h2>{this.state.stateNum}</h2>
                     <div className="button-container">
                         <button

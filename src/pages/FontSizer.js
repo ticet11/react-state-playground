@@ -8,28 +8,34 @@ export default class FontSizer extends Component {
 
         this.state = {
             fontSize: 18,
+            value: "",
         };
     }
 
-    handleUpClick = () => {
+    handleButtonClick = (number) => {
         this.setState({
-            fontSize: this.state.fontSize + 2
-        })
-    }
-
-    handleDownClick = () => {
-        this.setState({
-            fontSize: this.state.fontSize - 2
-        })
-    }
-    
+            fontSize: this.state.fontSize + number,
+        });
+    };
 
     render() {
         return (
             <div>
                 <h1>Font Sizer</h1>
-                <button onClick={() => this.handleDownClick()}>-</button>
-                <button onClick={() => this.handleUpClick()}>+</button>
+                <button
+                    onClick={() => {
+                        this.handleButtonClick(-2);
+                    }}
+                >
+                    -
+                </button>
+                <button
+                    onClick={() => {
+                        this.handleButtonClick(2);
+                    }}
+                >
+                    +
+                </button>
                 <h2 style={{ fontSize: this.state.fontSize }}>
                     Font Size is {this.state.fontSize}px.
                 </h2>
@@ -37,4 +43,3 @@ export default class FontSizer extends Component {
         );
     }
 }
-

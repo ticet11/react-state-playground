@@ -8,13 +8,21 @@ export default class ShowHide extends Component {
 
         this.state = {
             hidden: false,
+            tried: false,
         };
     }
 
+    firstClick = () => {
+        this.setState((prevState) => ({
+            tried: !prevState.tried,
+        }));
+        this.handleClick();
+    };
+
     handleClick = () => {
-        this.setState({
-            hidden: !this.state.hidden,
-        });
+        this.setState((prevState) => ({
+            hidden: !prevState.hidden,
+        }));
     };
 
     render() {
@@ -33,7 +41,30 @@ export default class ShowHide extends Component {
                             style={{ width: "100px", margin: "5px" }}
                             onClick={() => this.handleClick()}
                         >
-                            Secret Feature
+                            Return Guy
+                        </button>
+                    </div>
+                ) : this.state.tried ? (
+                    <div
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                        }}
+                    >
+                        <h2>
+                            Thank goodness. Don't do that again,
+                            please.
+                        </h2>
+                        <img
+                            style={{ width: "100px" }}
+                            src="https://t4.rbxcdn.com/d62e9c8c8495d3e3a6213a0788c4ae40"
+                            alt="Guy Fieri welcoming you to flavor town"
+                        />
+                        <button
+                            style={{ width: "100px", margin: "5px" }}
+                            onClick={() => this.handleClick()}
+                        >
+                            Exile Guy
                         </button>
                     </div>
                 ) : (
@@ -51,7 +82,7 @@ export default class ShowHide extends Component {
                         />
                         <button
                             style={{ width: "100px", margin: "5px" }}
-                            onClick={() => this.handleClick()}
+                            onClick={() => this.firstClick()}
                         >
                             Secret Feature
                         </button>

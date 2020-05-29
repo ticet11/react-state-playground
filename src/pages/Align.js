@@ -7,32 +7,38 @@ export default class Align extends Component {
         super();
 
         this.state = {
-            alignment: "",
+            style: {
+                width: "80vw",
+                border: "5px solid green",
+                textAlign: 'center'
+            }
         };
     }
-
+    
     handleClick = (buttonClicked) => {
         this.setState({
-            alignment: buttonClicked,
+            style: {
+                width: "80vw",
+                border: "5px solid green",
+                textAlign: buttonClicked
+            }
         });
     };
 
+    
     render() {
         return (
             <div
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                }}
+            style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+            }}
             >
                 <h1>Align</h1>
                 <h2
-                    style={{
-                        width: "80vw",
-                        border: "5px solid green",
-                    }}
-                >
+                    style={this.state.style}
+                    >
                     Align me like one of your French girls.
                 </h2>
                 <div className="button-container">

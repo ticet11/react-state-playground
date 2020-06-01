@@ -6,7 +6,7 @@ import Align from './pages/Align';
 import ChangeColor from './pages/ChangeColor';
 import Clock from './pages/Clock';
 import Counter from './pages/Counter';
-import FontSizer from './pages/FontSizer';
+import GuySizer from './pages/GuySizer';
 import ShowHide from './pages/ShowHide';
 import Toggle from './pages/Toggle';
 import './App.css';
@@ -19,7 +19,7 @@ function App() {
         <Route exact path='/' component={Home} />
         <Route exact path='/counter' component={Counter} />
         <Route exact path='/toggle' component={Toggle} />
-        <Route exact path='/fontsizer' component={FontSizer} />
+        <Route exact path='/guysizer' component={GuySizer} />
         <Route exact path='/align' component={Align} />
         <Route exact path='/showhide' component={ShowHide} />
         <Route exact path='/clock' component={Clock} />

@@ -20,8 +20,8 @@ export default function Header() {
                 </NavLink>
             </div>
             <div className="nav-link">
-                <NavLink exact to="/fontsizer">
-                    Font Sizer
+                <NavLink exact to="/guysizer">
+                    Guy Sizer
                 </NavLink>
             </div>
             <div className="nav-link">

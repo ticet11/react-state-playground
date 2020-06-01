@@ -2,6 +2,8 @@
 
 import React, { Component } from "react";
 
+import spaceGuy from '../images/spaceGuy.png'
+
 export default class ShowHide extends Component {
     constructor() {
         super();
@@ -38,7 +40,7 @@ export default class ShowHide extends Component {
                     >
                         <h2>What have you done?!</h2>
                         <button
-                            style={{ width: "100px", margin: "5px" }}
+                            style={{ width: "125px", margin: "5px" }}
                             onClick={() => this.handleClick()}
                         >
                             Return Guy
@@ -56,12 +58,12 @@ export default class ShowHide extends Component {
                             please.
                         </h2>
                         <img
-                            style={{ width: "100px" }}
-                            src="https://t4.rbxcdn.com/d62e9c8c8495d3e3a6213a0788c4ae40"
+                            style={{ width: "125px" }}
+                            src={spaceGuy}
                             alt="Guy Fieri welcoming you to flavor town"
                         />
                         <button
-                            style={{ width: "100px", margin: "5px" }}
+                            style={{ width: "125px", margin: "5px" }}
                             onClick={() => this.handleClick()}
                         >
                             Exile Guy
@@ -76,12 +78,12 @@ export default class ShowHide extends Component {
                     >
                         <h2>Don't click that button!</h2>
                         <img
-                            style={{ width: "100px" }}
-                            src="https://t4.rbxcdn.com/d62e9c8c8495d3e3a6213a0788c4ae40"
+                            style={{ width: "125px" }}
+                            src={spaceGuy}
                             alt="Guy Fieri welcoming you to flavor town"
                         />
                         <button
-                            style={{ width: "100px", margin: "5px" }}
+                            style={{ width: "125px", margin: "5px" }}
                             onClick={() => this.firstClick()}
                         >
                             Secret Feature

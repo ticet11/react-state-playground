@@ -1,27 +1,13 @@
 //TODO: Increase/decrease font size
 
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-import guySize from "../images/guySize.png";
+import guySizePic from "../images/guySize.png";
 
-export default class GuySizer extends Component {
-    constructor() {
-        super();
-
-        this.state = {
-            guySize: 200,
-            value: "",
-        };
-    }
-
-    handleButtonClick = (number) => {
-        this.setState({
-            guySize: this.state.guySize + number,
-        });
-    };
-
-    render() {
-        return (
+export default function GuySizer() {
+    const [guySize, setGuySize] = useState(200);
+    return (
+        <div>
             <div
                 style={{
                     display: "flex",
@@ -34,28 +20,20 @@ export default class GuySizer extends Component {
                     className="buttonDiv"
                     style={{ marginBottom: "15px" }}
                 >
-                    <button
-                        onClick={() => {
-                            this.handleButtonClick(-5);
-                        }}
-                    >
+                    <button onClick={() => setGuySize(guySize - 10)}>
                         -
                     </button>
-                    <button
-                        onClick={() => {
-                            this.handleButtonClick(5);
-                        }}
-                    >
+                    <button onClick={() => setGuySize(guySize + 10)}>
                         +
                     </button>
                 </div>
                 <img
-                    style={{ width: `${this.state.guySize}px` }}
-                    src={guySize}
+                    style={{ width: `${guySize}px` }}
+                    src={guySizePic}
                     alt=""
                 />
-                <h2>guy Size is {this.state.guySize}px.</h2>
+                <h2>guy Size is {guySize}px.</h2>
             </div>
-        );
-    }
+        </div>
+    );
 }

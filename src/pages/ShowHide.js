@@ -1,96 +1,83 @@
 // button to show and hide text.
 
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-import spaceGuy from '../images/spaceGuy.png'
+import spaceGuy from "../images/spaceGuy.png";
 
-export default class ShowHide extends Component {
-    constructor() {
-        super();
+export default function ShowHide() {
+    const [hidden, setHidden] = useState(false);
+    const [tried, setTried] = useState(false);
 
-        this.state = {
-            hidden: false,
-            tried: false,
-        };
-    }
-
-    firstClick = () => {
-        this.setState((prevState) => ({
-            tried: !prevState.tried,
-        }));
-        this.handleClick();
+    const firstClick = () => {
+        setTried(!tried);
+        handleClick();
     };
 
-    handleClick = () => {
-        this.setState((prevState) => ({
-            hidden: !prevState.hidden,
-        }));
+    const handleClick = () => {
+        setHidden(!hidden);
     };
 
-    render() {
-        return (
-            <div>
-                <h1>Show Hide</h1>
-                {this.state.hidden ? (
-                    <div
-                        style={{
-                            display: "flex",
-                            flexDirection: "column",
-                        }}
+    return (
+        <div>
+            <h1>Show Hide</h1>
+            {hidden ? (
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                    }}
+                >
+                    <h2>What have you done?!</h2>
+                    <button
+                        style={{ width: "125px", margin: "5px" }}
+                        onClick={() => handleClick()}
                     >
-                        <h2>What have you done?!</h2>
-                        <button
-                            style={{ width: "125px", margin: "5px" }}
-                            onClick={() => this.handleClick()}
-                        >
-                            Return Guy
-                        </button>
-                    </div>
-                ) : this.state.tried ? (
-                    <div
-                        style={{
-                            display: "flex",
-                            flexDirection: "column",
-                        }}
+                        Return Guy
+                    </button>
+                </div>
+            ) : tried ? (
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                    }}
+                >
+                    <h2>
+                        Thank goodness. Don't do that again, please.
+                    </h2>
+                    <img
+                        style={{ width: "125px" }}
+                        src={spaceGuy}
+                        alt="Guy Fieri welcoming you to flavor town"
+                    />
+                    <button
+                        style={{ width: "125px", margin: "5px" }}
+                        onClick={() => handleClick()}
                     >
-                        <h2>
-                            Thank goodness. Don't do that again,
-                            please.
-                        </h2>
-                        <img
-                            style={{ width: "125px" }}
-                            src={spaceGuy}
-                            alt="Guy Fieri welcoming you to flavor town"
-                        />
-                        <button
-                            style={{ width: "125px", margin: "5px" }}
-                            onClick={() => this.handleClick()}
-                        >
-                            Exile Guy
-                        </button>
-                    </div>
-                ) : (
-                    <div
-                        style={{
-                            display: "flex",
-                            flexDirection: "column",
-                        }}
+                        Exile Guy
+                    </button>
+                </div>
+            ) : (
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                    }}
+                >
+                    <h2>Don't click that button!</h2>
+                    <img
+                        style={{ width: "125px" }}
+                        src={spaceGuy}
+                        alt="Guy Fieri welcoming you to flavor town"
+                    />
+                    <button
+                        style={{ width: "125px", margin: "5px" }}
+                        onClick={() => firstClick()}
                     >
-                        <h2>Don't click that button!</h2>
-                        <img
-                            style={{ width: "125px" }}
-                            src={spaceGuy}
-                            alt="Guy Fieri welcoming you to flavor town"
-                        />
-                        <button
-                            style={{ width: "125px", margin: "5px" }}
-                            onClick={() => this.firstClick()}
-                        >
-                            Secret Feature
-                        </button>
-                    </div>
-                )}
-            </div>
-        );
-    }
+                        Secret Feature
+                    </button>
+                </div>
+            )}
+        </div>
+    );
 }

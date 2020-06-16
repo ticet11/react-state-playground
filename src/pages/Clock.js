@@ -1,35 +1,23 @@
 // render a clock
 
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
 
-export default class Clock extends Component {
-    constructor() {
-        super();
+export default function Clock() {
+    const [time, setTime] = useState(moment().format("LTS"));
 
-        this.state = {
-            time: moment().format("LTS"),
-        };
-    }
-
-    componentDidMount() {
-        this.interval = setInterval(
-            (() =>
-                this.setState({ time: moment().format("LTS") })),
+    useEffect(() => {
+        const interval = setInterval(
+            () => setTime(moment().format("LTS")),
             1000
         );
-    };
+        return () => clearInterval(interval);
+    });
 
-    componentWillUnmount() {
-        clearInterval(this.interval);
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>Clock</h1>
-                <h2>{this.state.time}</h2>
-            </div>
-        );
-    }
+    return (
+        <div>
+            <h1>Clock</h1>
+            <h2>{time}</h2>
+        </div>
+    );
 }

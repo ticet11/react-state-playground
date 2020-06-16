@@ -1,43 +1,33 @@
 // import color string, change font color
 
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-export default class ChangeColor extends Component {
-    constructor() {
-        super();
+export default function ChangeColor() {
+    const [color, setColor] = useState('');
+    const [value, setValue] = useState('')
 
-        this.state = {
-            color: "",
-            value: "",
-        };
-    }
-
-    handleChange = (event) => {
-        this.setState({
-            value: event.target.value,
-        });
+    const handleChange = (event) => {
+        setValue(event.target.value)
     };
 
-    handleSubmit = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        this.setState({
-            color: this.state.value,
-        });
+        setColor(value)
     };
 
-    render() {
+    
         return (
             <div style={{ padding: "15px" }}>
                 <h1>Change Color</h1>
                 <form
-                    onSubmit={this.handleSubmit}
+                    onSubmit={handleSubmit}
                     style={{ width: "206px", paddingBottom: "5px" }}
                 >
                     <input
                         name="color"
                         placeholder="#000000"
-                        value={this.state.value}
-                        onChange={this.handleChange}
+                        value={value}
+                        onChange={handleChange}
                         type="text"
                         style={{ width: "127px", marginRight: "8px" }}
                     />
@@ -45,7 +35,7 @@ export default class ChangeColor extends Component {
                 </form>
                 <div
                     style={{
-                        backgroundColor: this.state.color,
+                        backgroundColor: color,
                         width: "200px",
                         height: "200px",
                         border: "3px solid black",
@@ -53,5 +43,5 @@ export default class ChangeColor extends Component {
                 ></div>
             </div>
         );
-    }
+
 }

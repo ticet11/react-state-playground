@@ -1,40 +1,33 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export default class FetchData extends Component {
-    constructor() {
-        super();
+export default function FetchData() {
+    const [posts, setPosts] = useState([]);
 
-        this.state = {
-            posts: [],
-        };
-    }
-
-    fetchPosts = () => {
+    const fetchPosts = () => {
         axios
             .get("https://jsonplaceholder.typicode.com/posts")
-            .then((response) =>
-                this.setState({ posts: response.data })
-            )
+            .then((response) => {
+                setPosts(response.data);
+                console.log(response.data);
+            })
             .catch((error) =>
                 console.error("fetch posts error", error)
             );
     };
 
-    componentDidMount = () => this.fetchPosts();
+    useEffect(() => fetchPosts(), []);
 
-    render() {
-        return (
-            <div>
-                {this.state.posts.map((post) => {
-                    return (
-                        <div>
-                            <h1>{post.title}</h1>
-                            <p>{post.body}</p>
-                        </div>
-                    );
-                })}
-            </div>
-        );
-    }
+    return (
+        <div>
+            {posts.map((post) => {
+                return (
+                    <div key={post.id}>
+                        <h1>{post.title}</h1>
+                        <p>{post.body}</p>
+                    </div>
+                );
+            })}
+        </div>
+    );
 }

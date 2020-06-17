@@ -44,6 +44,11 @@ export default function Header() {
                     Change Color
                 </NavLink>
             </div>
+            <div className="nav-link">
+                <NavLink exact to="/fetch-data">
+                    Fetch Data
+                </NavLink>
+            </div>
         </div>
     );
 }

@@ -9,6 +9,7 @@ import Counter from './pages/Counter';
 import GuySizer from './pages/GuySizer';
 import ShowHide from './pages/ShowHide';
 import Toggle from './pages/Toggle';
+import FetchData from './pages/FetchData';
 import './App.css';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route exact path='/showhide' component={ShowHide} />
         <Route exact path='/clock' component={Clock} />
         <Route exact path='/changecolor' component={ChangeColor} />
+        <Route exact path='/fetch-data' component={FetchData} />
       </Switch>
     </Router>
   );

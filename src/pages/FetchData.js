@@ -10,8 +10,6 @@ export default class FetchData extends Component {
         };
     }
 
-
-
     fetchPosts = () => {
         axios
             .get("https://jsonplaceholder.typicode.com/posts")
@@ -26,13 +24,17 @@ export default class FetchData extends Component {
     componentDidMount = () => this.fetchPosts();
 
     render() {
-    return <div>{
-            this.state.posts.map(post => {
-                return (
-                <div>{post.title}</div>
-                )
-            }
-            )
-        }</div>;
+        return (
+            <div>
+                {this.state.posts.map((post) => {
+                    return (
+                        <div>
+                            <h1>{post.title}</h1>
+                            <p>{post.body}</p>
+                        </div>
+                    );
+                })}
+            </div>
+        );
     }
 }

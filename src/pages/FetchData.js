@@ -6,7 +6,7 @@ export default function FetchData() {
 
     const fetchPosts = () => {
         axios
-            .get("https://jsonplaceholder.typicode.com/posts")
+            .get("https://jsonplaceholder.typicode.com/users/1/posts")
             .then((response) => {
                 setPosts(response.data);
                 console.log(response.data);
